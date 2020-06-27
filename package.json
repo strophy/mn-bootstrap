@@ -58,9 +58,11 @@
     "docker-compose": "^0.23.3",
     "dockerode": "^3.2.0",
     "dotenv": "^8.2.0",
+    "enquirer": "^2.3.5",
     "hasbin": "^1.2.3",
     "listr": "^0.14.3",
     "node-graceful": "^3.0.0",
+    "public-ip": "^4.0.1",
     "rimraf": "^3.0.2",
     "rxjs": "latest",
     "semver": "^7.3.2"
