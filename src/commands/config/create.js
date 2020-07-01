@@ -32,6 +32,8 @@ class ConfigCreateCommand extends BaseCommand {
       //first argument is the name of the config
       const configFile = path.join(this.config.configDir, (config + '.json'));
 
+      fs.ensureFile(configFile);
+
       //check config does not already exist
       fs.readdir(this.config.configDir)
         .then(function (files) {
