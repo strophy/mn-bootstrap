@@ -1,6 +1,9 @@
 # ignore JetBrains IDE project specific files
 .idea
 
+# ignore VS Code IDE project specific files
+.vscode
+
 # Env file
 .env
 
