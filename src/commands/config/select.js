@@ -24,7 +24,7 @@ class ConfigSelectCommand extends BaseCommand {
 
       //load config file
       await fs.writeJson(loadConfigFile, {
-        config: args.config,
+        config: config,
       });
 
     } catch (e) {
