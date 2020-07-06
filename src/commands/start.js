@@ -1,6 +1,8 @@
 const fs = require('fs').promises;
 const path = require('path');
 
+const { configs } = require('../util/configs');
+
 const Listr = require('listr');
 
 const dotenv = require('dotenv');
@@ -13,21 +15,15 @@ const UpdateRendererWithOutput = require('../oclif/renderer/UpdateRendererWithOu
 
 const MuteOneLineError = require('../oclif/errors/MuteOneLineError');
 
-const PRESETS = require('../presets');
+//const PRESETS = require('../presets');
 
 class StartCommand extends BaseCommand {
   /**
-   * @param {Object} args
    * @param {Object} flags
    * @param {DockerCompose} dockerCompose
    * @return {Promise<void>}
    */
   async runWithDependencies(
-    {
-      preset,
-      'external-ip': externalIp,
-      'core-p2p-port': coreP2pPort,
-    },
     {
       'full-node': isFullNode,
       'operator-private-key': operatorPrivateKey,
@@ -36,6 +32,8 @@ class StartCommand extends BaseCommand {
     },
     dockerCompose,
   ) {
+    const { config, presets: { externalIp, p2pPort: coreP2pPort } } = await configs(this);
+
     const tasks = new Listr([
       {
         title: `Start ${isFullNode ? 'full node' : 'masternode'} with ${preset} preset`,
@@ -96,21 +94,6 @@ StartCommand.description = `Start masternode
 ...
 Start masternode with specific preset
 `;
-
-StartCommand.args = [{
-  name: 'preset',
-  required: true,
-  description: 'preset to use',
-  options: Object.values(PRESETS),
-}, {
-  name: 'external-ip',
-  required: true,
-  description: 'masternode external IP',
-}, {
-  name: 'core-p2p-port',
-  required: true,
-  description: 'Core P2P port',
-}];
 
 StartCommand.flags = {
   'full-node': flagTypes.boolean({ char: 'f', description: 'start as full node', default: false }),
