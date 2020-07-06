@@ -17,12 +17,13 @@ class ConfigSetCommand extends BaseCommand {
   }) {
     try {
       let { config, presets } = await configs(this);
-      const configFile = path.join(this.config.configDir, (config + '.json'));
+      const configFilePath = path.join(this.config.configDir, 'config.json');
+      const configFile = require(configFilePath);
+      const objIndex = configFile.configs.findIndex(x => x.name === config);
 
       presets[option] = value;
-      
-      await fs.writeJson(configFile, presets);
-
+      configFile.configs[objIndex] = presets;
+      await fs.writeJson(configFilePath, configFile);
 
     } catch (e) {
       console.log(e);

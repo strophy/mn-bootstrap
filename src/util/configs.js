@@ -10,8 +10,10 @@ async function configs(ctx) {
     // is it safe to read files with sync like this? everything else
     // needs to wait for settings anyway, so maybe without async like
     // this is better
-    const config = require(path.join(ctx.config.configDir, 'config.json')).config;
-    const presets = require(path.join(ctx.config.configDir, (config + '.json')));
+    const configFile = require(path.join(ctx.config.configDir, 'config.json'));
+    
+    const config = configFile.config;
+    const presets = configFile.configs.find(x => x.name === config);
 
     // we should validate minimum required configuration here
     // or maybe when creating the file?

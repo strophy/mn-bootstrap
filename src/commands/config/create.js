@@ -5,6 +5,7 @@ const { prompt } = require('enquirer');
 const { flags: flagTypes } = require('@oclif/command');
 const BaseCommand = require('../../oclif/command/BaseCommand');
 const MuteOneLineError = require('../../oclif/errors/MuteOneLineError');
+const { runInThisContext } = require('vm');
 
 class ConfigCreateCommand extends BaseCommand {
   /**
@@ -16,7 +17,9 @@ class ConfigCreateCommand extends BaseCommand {
     {
       'config': config,
     },
-    flags,
+    {
+      'flags': flags,
+    },
   ) {
     try {
       //check we aren't using a reserved config. maybe we can set static
@@ -29,21 +32,30 @@ class ConfigCreateCommand extends BaseCommand {
           this.exit();
       };
 
-      //first argument is the name of the config
-      const configFile = path.join(this.config.configDir, (config + '.json'));
+      const configFile = path.join(this.config.configDir, 'config.json');
+      let configData;
 
-      fs.ensureFile(configFile);
+      fs.ensureFileSync(configFile);
 
-      //check config does not already exist
-      fs.readdir(this.config.configDir)
-        .then(function (files) {
-          for (let file in files) {
-            if (files[file] === (config + '.json')) {
-              throw new Error('This configuration already exists'); // Why is this error so horrible??
-            }
-          }
-        })
+      try {
+        const jsonString = fs.readFileSync(configFile);
+        configData = JSON.parse(jsonString);
+      } catch (err) {
+        console.log(err);
+        this.exit();
+      }
 
+      console.log(configData);
+
+      // check we are not creating an existing config
+      if (configData != null) {
+        if (Object.values(configData.configs).some(x => (x.name === config))) {
+          console.log('Cannot create already existing config. Exiting.');
+          this.exit();
+        }
+      }
+
+      // handle 
 
       //determine which information we still need to collect
       //make sure we only define MINIMUM configuration here
@@ -76,7 +88,8 @@ class ConfigCreateCommand extends BaseCommand {
             type: 'input',
             name: 'coreVersion',
             message: 'Enter the Docker version tag you want use for Dash Core',
-            required: true
+            required: true,
+            initial: '0.15'
           })
         }
 
@@ -127,14 +140,10 @@ class ConfigCreateCommand extends BaseCommand {
       //and add/remove json sections each time instead of
       //creating/deleting files? what is best practice or more
       //user-friendly?
-      await fs.writeJson(configFile, {
-        network: flags.network,
-        projectName: flags.projectName,
-        coreVersion: flags.coreVersion,
-        externalIp: flags.externalIp,
-        p2pPort: flags.p2pPort,
-        blsPrivKey: flags.blsPrivKey,
-      });
+      configData.configs.push(flags);
+
+      console.log(configData)
+      //fs.writeJsonSync(configFile, configData);
 
     } catch (e) {
       console.log(e);
