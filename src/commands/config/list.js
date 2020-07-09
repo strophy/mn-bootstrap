@@ -2,13 +2,22 @@ const fs = require('fs-extra');
 const BaseCommand = require('../../oclif/command/BaseCommand');
 
 const MuteOneLineError = require('../../oclif/errors/MuteOneLineError');
+const ConfigManager = require('../../config/ConfigManager');
 
 class ConfigListCommand extends BaseCommand {
   /**
+   * @param {ConfigManager} config
    * @return {Promise<void>}
    */
-  async runWithDependencies() {
+  async runWithDependencies(config) {
     try {
+      console.log('Entering list command');
+
+      async () => config.loadConfigs();
+      console.log(config);
+
+      this.exit();
+
 
       //check config dir exists. actually maybe we can do that in
       //util/configs.js? or in some parent class?

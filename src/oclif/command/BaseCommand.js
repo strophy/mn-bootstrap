@@ -13,6 +13,7 @@ class BaseCommand extends Command {
   async init() {
     this.container = await createDIContainer();
 
+    const config = this.container.loadConfigs;
     const stopAllContainers = this.container.resolve('stopAllContainers');
     const startedContainers = this.container.resolve('startedContainers');
 
