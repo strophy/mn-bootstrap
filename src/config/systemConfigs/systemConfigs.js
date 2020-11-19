@@ -902,4 +902,19 @@ module.exports = {
       file: 'docker-compose.yml',
     },
   }),
+  mainnet: lodashMerge({}, baseConfig, {
+    description: 'node with mainnet configuration',
+    core: {
+      p2p: {
+        port: 9999,
+      },
+      rpc: {
+        port: 9998,
+      },
+    },
+    network: NETWORKS.MAINNET,
+    compose: {
+      file: 'docker-compose.yml',
+    },
+  }),
 };
