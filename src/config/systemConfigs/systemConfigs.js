@@ -123,7 +123,7 @@ const baseConfig = {
   externalIp: null,
   network: NETWORKS.TESTNET,
   compose: {
-    file: 'docker-compose.yml:docker-compose.platform.yml',
+    file: 'docker-compose.yml:docker-compose.platform.yml:docker-compose.statodashi.yml',
   },
   environment: 'production',
 };

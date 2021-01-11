@@ -4,6 +4,11 @@ logtimestamps=1
 maxconnections=256
 printtoconsole=1
 
+# Statodashi
+statsenabled=1
+statshost=graphite
+statsport=8125
+
 # JSONRPC
 server=1
 rpcuser={{=it.core.rpc.user}}

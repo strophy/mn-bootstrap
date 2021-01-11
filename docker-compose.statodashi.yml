@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  graphite:
+    image: graphiteapp/graphite-statsd
+    restart: always
+    ports:
+      - 127.0.0.1:8125:8125
+    volumes:
+      - "./templates/statodashi/storage-schemas.conf:/opt/graphite/conf/storage-schemas.conf"
+      - "./templates/statodashi/storage-aggregation.conf:/opt/graphite/conf/storage-aggregation.conf"
+      - "graphite-storage:/opt/graphite/storage"
+      - "statsd-config:/opt/statsd/config"
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 80:3000
+    volumes:
+      - "./templates/statodashi/grafana.ini:/etc/grafana/grafana.ini"
+      - "./templates/statodashi/blue-d.svg:/usr/share/grafana/public/img/grafana_icon.svg"
+      - "./templates/statodashi/home.json:/usr/share/grafana/public/dashboards/home.json"
+      - "grafana-storage:/var/lib/grafana"
+  prometheus:
+    image: prom/prometheus
+    restart: always
+    ports:
+      - 9090:9090
+
+volumes:
+  grafana-storage:
+  graphite-storage:
+  statsd-config:
