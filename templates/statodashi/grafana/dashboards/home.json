@@ -2,15 +2,26 @@
   "links": [],
   "panels": [
     {
-      "aliasColors": {},
-      "dashLength": 10,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "mappings": []
         },
         "overrides": []
       },
-      "fill": 1,
       "gridPos": {
         "h": 15,
         "w": 12,
@@ -18,77 +29,41 @@
         "y": 0
       },
       "id": 1,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "reduceOptions": {
+          "values": false,
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": ""
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto"
       },
       "pluginVersion": "7.3.6",
-      "pointradius": 2,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
       "targets": [
         {
+          "refCount": 0,
           "refId": "A",
-          "target": "stats.gauges.blocks.tip.Height",
-          "refCount": 0
+          "target": "aliasByMetric(stats.gauges.blocks.tip.Height)"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
-      "title": "Overview",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      },
-      "bars": false,
-      "dashes": false,
-      "fillGradient": 0,
-      "hiddenSeries": false,
-      "percentage": false,
-      "points": false,
-      "stack": false,
-      "steppedLine": false,
       "timeFrom": null,
       "timeShift": null,
+      "title": "Overview",
+      "type": "stat",
       "datasource": null
     },
     {
-      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "folderId": 0,
       "gridPos": {
         "h": 15,
@@ -96,19 +71,18 @@
         "x": 12,
         "y": 0
       },
-      "headings": true,
+      "headings": false,
       "id": 2,
       "limit": 30,
       "links": [],
-      "options": {},
       "query": "",
-      "mode": "search",
-      "recent": true,
-      "search": false,
-      "starred": true,
+      "recent": false,
+      "search": true,
+      "starred": false,
       "tags": [],
       "title": "Dashboards",
-      "type": "dashlist"
+      "type": "dashlist",
+      "datasource": null
     }
   ],
   "schemaVersion": 22,

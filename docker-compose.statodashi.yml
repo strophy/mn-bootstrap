@@ -20,9 +20,9 @@ services:
       - "./templates/statodashi/grafana/blue-d.svg:/usr/share/grafana/public/img/grafana_icon.svg"
       - "./templates/statodashi/grafana/dashboards:/var/lib/grafana/dashboards"
       - "./templates/statodashi/grafana/provisioning/:/etc/grafana/provisioning"
-      #- "./templates/statodashi/home.json:/usr/share/grafana/public/dashboards/home.json"
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_DEFAULT_HOME_DASHBOARD_PATH = /var/lib/grafana/dashboards/home.json
 
   prometheus:
     image: prom/prometheus
