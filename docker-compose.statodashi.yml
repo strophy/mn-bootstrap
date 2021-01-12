@@ -7,33 +7,34 @@ services:
     ports:
       - 127.0.0.1:8125:8125
     volumes:
-      - "./templates/statodashi/storage-schemas.conf:/opt/graphite/conf/storage-schemas.conf"
-      - "./templates/statodashi/storage-aggregation.conf:/opt/graphite/conf/storage-aggregation.conf"
-      - "graphite-storage:/opt/graphite/storage"
-      - "statsd-config:/opt/statsd/config"
+      - "./templates/statodashi/graphite/storage-schemas.conf:/opt/graphite/conf/storage-schemas.conf"
+      - "./templates/statodashi/graphite/storage-aggregation.conf:/opt/graphite/conf/storage-aggregation.conf"
+      - "graphite_data:/opt/graphite/storage"
+      - "statsd_config:/opt/statsd/config"
+
   grafana:
     image: grafana/grafana
     ports:
       - 80:3000
     volumes:
-      - "./templates/statodashi/grafana.ini:/etc/grafana/grafana.ini"
-      - "./templates/statodashi/blue-d.svg:/usr/share/grafana/public/img/grafana_icon.svg"
-      - "./templates/statodashi/home.json:/usr/share/grafana/public/dashboards/home.json"
-      - "grafana-storage:/var/lib/grafana"
+      - "./templates/statodashi/grafana/blue-d.svg:/usr/share/grafana/public/img/grafana_icon.svg"
+      - "./templates/statodashi/grafana/dashboards:/var/lib/grafana/dashboards"
+      - "./templates/statodashi/grafana/provisioning/:/etc/grafana/provisioning"
+      #- "./templates/statodashi/home.json:/usr/share/grafana/public/dashboards/home.json"
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+
   prometheus:
     image: prom/prometheus
     restart: always
-    ports:
-      - 9090:9090
     volumes:
-      - "./templates/statodashi/prometheus.yml:/etc/prometheus/prometheus.yml"
+      - "./templates/statodashi/prometheus/:/etc/prometheus/"
       - "prometheus_data:/prometheus"
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
 
 volumes:
-  grafana-storage:
-  graphite-storage:
-  statsd-config:
+  graphite_data:
   prometheus_data:
+  statsd_config:
