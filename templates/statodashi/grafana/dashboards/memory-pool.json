@@ -20,11 +20,8 @@
   "panels": [
     {
       "aliasColors": {
-        "SizeBytes": "red",
-        "currentNumTransactions": "#CCA300",
-        "currentSigOps": "#F9934E",
-        "currentSizeBytes": "#AEA2E0",
-        "currentSizeWithWitnessBytes": "#E24D42"
+        "memoryUsageBytes": "#FCE2DE",
+        "totalTxBytes": "red"
       },
       "bars": false,
       "dashLength": 10,
@@ -48,15 +45,15 @@
         "y": 0
       },
       "hiddenSeries": false,
-      "id": 5,
+      "id": 2,
       "legend": {
-        "avg": true,
+        "avg": false,
         "current": false,
-        "max": true,
+        "max": false,
         "min": false,
         "show": true,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
       "linewidth": 0,
@@ -72,12 +69,8 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "alias": "SizeBytes",
+          "alias": "totalTransactions",
           "yaxis": 2
-        },
-        {
-          "alias": "NumTransactions",
-          "fill": 10
         }
       ],
       "spaceLength": 10,
@@ -85,26 +78,19 @@
       "steppedLine": true,
       "targets": [
         {
-          "refCount": 0,
           "refId": "A",
-          "target": "aliasByMetric(stats.gauges.blocks.tip.NumTransactions)"
+          "target": "aliasByMetric(stats.gauges.transactions.mempool.totalTxBytes)"
         },
         {
-          "refCount": 0,
           "refId": "B",
-          "target": "aliasByMetric(stats.gauges.blocks.tip.SigOps)"
-        },
-        {
-          "refCount": 0,
-          "refId": "C",
-          "target": "aliasByMetric(stats.gauges.blocks.tip.SizeBytes)"
+          "target": "aliasByMetric(stats.gauges.transactions.mempool.totalTransactions)"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Block Usage",
+      "title": "Mempool Transactions",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -120,14 +106,14 @@
       },
       "yaxes": [
         {
-          "format": "none",
+          "format": "bytes",
           "logBase": 1,
           "max": null,
           "min": 0,
           "show": true
         },
         {
-          "format": "decbytes",
+          "format": "short",
           "logBase": 1,
           "max": null,
           "min": 0,
@@ -141,8 +127,105 @@
     },
     {
       "aliasColors": {
-        "cmpctblock": "#BF1B00",
-        "currentHeight": "#508642"
+        "memoryUsageBytes": "#FCE2DE"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 5,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 1,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 0,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": true,
+      "targets": [
+        {
+          "refId": "A",
+          "target": "aliasByMetric(stats.gauges.transactions.mempool.memoryUsageBytes)"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Mempool Dynamic Memory Usage",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "memoryUsageBytes": "#FCE2DE",
+        "minFeePerKb": "#1F78C1"
       },
       "bars": false,
       "dashLength": 10,
@@ -163,129 +246,6 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 7
-      },
-      "hiddenSeries": false,
-      "id": 1,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": false,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Height",
-          "lines": true,
-          "yaxis": 2
-        },
-        {
-          "alias": "block",
-          "bars": true
-        },
-        {
-          "alias": "cmpctblock",
-          "bars": true
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "refCount": 0,
-          "refId": "A",
-          "target": "aliasByMetric(stats.gauges.blocks.tip.Height)"
-        },
-        {
-          "refCount": 0,
-          "refId": "B",
-          "target": "aliasByMetric(stats.message.received.block)"
-        },
-        {
-          "refCount": 0,
-          "refId": "C",
-          "target": "aliasByMetric(stats.message.received.cmpctblock)"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Blocks Received vs Block Height",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "none",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "none",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "blockInvReceived": "#3F6833",
-        "blockReceived": "#58140C"
-      },
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
         "y": 14
       },
       "hiddenSeries": false,
@@ -299,126 +259,16 @@
         "total": false,
         "values": false
       },
-      "lines": false,
-      "linewidth": 1,
+      "lines": true,
+      "linewidth": 2,
       "links": [],
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
       "pluginVersion": "7.3.6",
       "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "blockInvReceived",
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "refId": "A",
-          "target": "alias(stats.message.received.block, 'blockReceived')"
-        },
-        {
-          "refId": "B",
-          "target": "alias(stats.message.received.cmpctblock, 'compactBlockReceived')"
-        },
-        {
-          "refId": "C",
-          "target": "alias(stats.message.received.inv_block, 'blockInvReceived')"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Blocks Received vs Block INVs Received",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "blockSent": "#890F02"
-      },
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 21
-      },
-      "hiddenSeries": false,
-      "id": 2,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": false,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 1,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [],
@@ -428,26 +278,14 @@
       "targets": [
         {
           "refId": "A",
-          "target": "alias(stats.message.received.block, 'blockReceived')"
-        },
-        {
-          "refId": "B",
-          "target": "alias(stats.message.received.cmpctblock, 'compactBlockReceived')"
-        },
-        {
-          "refId": "C",
-          "target": "alias(stats.message.sent.block, 'blockSent')"
-        },
-        {
-          "refId": "D",
-          "target": "alias(stats.message.received.getblocks, 'blocksRequested')"
+          "target": "aliasByMetric(stats.gauges.transactions.mempool.minFeePerKb)"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Blocks Received vs Blocks Sent",
+      "title": "Minimum Mempool Transaction Fee",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -463,10 +301,11 @@
       },
       "yaxes": [
         {
-          "format": "short",
+          "format": "none",
+          "label": "Satoshis Per KiloByte",
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": 0,
           "show": true
         },
         {
@@ -526,7 +365,7 @@
     "type": "timepicker"
   },
   "timezone": "browser",
-  "title": "Blocks",
-  "uid": "8MW2c0-Gk",
-  "version": 2
+  "title": "Memory Pool",
+  "uid": "suoTc0aMk",
+  "version": 1
 }

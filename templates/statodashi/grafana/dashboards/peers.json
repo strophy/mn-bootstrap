@@ -1,5 +1,6 @@
 {
   "annotations": {
+    "enable": false,
     "list": [
       {
         "builtIn": 1,
@@ -14,24 +15,313 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "id": null,
   "links": [],
   "panels": [
     {
       "aliasColors": {
-        "SizeBytes": "red",
-        "currentNumTransactions": "#CCA300",
-        "currentSigOps": "#F9934E",
-        "currentSizeBytes": "#AEA2E0",
-        "currentSizeWithWitnessBytes": "#E24D42"
+        "stats.gauges.peers.knownAddresses": "#EAB839",
+        "stats.gauges.peers.totalConnections": "#629E51"
+      },
+      "annotate": {
+        "enable": false
       },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": null,
       "editable": true,
-      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {
+        "max": null,
+        "min": null
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "interactive": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "legend_counts": true,
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "resolution": 100,
+      "scale": 1,
+      "seriesOverrides": [
+        {
+          "alias": "stats.gauges.peers.knownAddresses",
+          "yaxis": 2
+        },
+        {
+          "alias": "knownAddresses",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "spyable": true,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "refId": "A",
+          "target": "aliasByMetric(stats.gauges.peers.fullNodeConnections)"
+        },
+        {
+          "refId": "B",
+          "target": "aliasByMetric(stats.gauges.peers.spvNodeConnections)"
+        },
+        {
+          "refId": "C",
+          "target": "aliasByMetric(stats.gauges.peers.inboundConnections)"
+        },
+        {
+          "refId": "D",
+          "target": "aliasByMetric(stats.gauges.peers.outboundConnections)"
+        },
+        {
+          "refId": "E",
+          "target": "aliasByMetric(stats.gauges.peers.knownAddresses)"
+        },
+        {
+          "refId": "F",
+          "target": "aliasByMetric(stats.gauges.peers.ipv4Connections)"
+        },
+        {
+          "refId": "G",
+          "target": "aliasByMetric(stats.gauges.peers.ipv6Connections)"
+        },
+        {
+          "refId": "H",
+          "target": "aliasByMetric(stats.gauges.peers.torConnections)"
+        },
+        {
+          "refId": "I",
+          "target": "aliasByMetric(stats.gauges.peers.totalConnections)"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "timezone": "browser",
+      "title": "Peers",
+      "tooltip": {
+        "query_as_alias": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": "Peers",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "none",
+          "label": "Addresses",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      },
+      "zerofill": true
+    },
+    {
+      "aliasColors": {
+        "lower": "#7EB26D",
+        "median": "#1F78C1",
+        "stats.gauges.peers.knownAddresses": "#EAB839",
+        "stats.gauges.peers.totalConnections": "#629E51",
+        "upper": "#890F02"
+      },
+      "annotate": {
+        "enable": false
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "editable": true,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {
+        "max": null,
+        "min": null
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 9,
+      "interactive": true,
+      "legend": {
+        "avg": true,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "legend_counts": true,
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "resolution": 100,
+      "scale": 1,
+      "seriesOverrides": [
+        {
+          "alias": "stats.gauges.peers.knownAddresses",
+          "yaxis": 2
+        },
+        {
+          "alias": "knownAddresses",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "spyable": true,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "refId": "A",
+          "target": "aliasByMetric(stats.timers.peers.ping_us.lower)"
+        },
+        {
+          "hide": false,
+          "refId": "B",
+          "target": "aliasByMetric(stats.timers.peers.ping_us.median)"
+        },
+        {
+          "refId": "C",
+          "target": "aliasByMetric(stats.timers.peers.ping_us.upper)"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "timezone": "browser",
+      "title": "Peer Pings",
+      "tooltip": {
+        "query_as_alias": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "µs",
+          "label": "Ping Time",
+          "logBase": 10,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "none",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      },
+      "zerofill": true
+    },
+    {
+      "aliasColors": {
+        "banned": "#890F02",
+        "reject": "red",
+        "stats.message.sent.reject_tx_duplicate": "#E0F9D7",
+        "stats.misbehavior.amount": "#EAB839",
+        "stats.misbehavior.banned": "#890F02"
+      },
+      "annotate": {
+        "enable": false
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "editable": true,
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -40,24 +330,30 @@
       },
       "fill": 5,
       "fillGradient": 0,
-      "grid": {},
+      "grid": {
+        "max": null,
+        "min": 0
+      },
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 14
       },
       "hiddenSeries": false,
-      "id": 5,
+      "id": 10,
+      "interactive": true,
       "legend": {
-        "avg": true,
+        "avg": false,
         "current": false,
-        "max": true,
+        "hideEmpty": true,
+        "max": false,
         "min": false,
         "show": true,
         "total": false,
-        "values": true
+        "values": false
       },
+      "legend_counts": true,
       "lines": true,
       "linewidth": 0,
       "links": [],
@@ -70,45 +366,42 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
+      "resolution": 100,
+      "scale": 1,
       "seriesOverrides": [
         {
-          "alias": "SizeBytes",
+          "alias": "banned",
           "yaxis": 2
-        },
-        {
-          "alias": "NumTransactions",
-          "fill": 10
         }
       ],
       "spaceLength": 10,
+      "spyable": true,
       "stack": false,
       "steppedLine": true,
       "targets": [
         {
+          "hide": false,
           "refCount": 0,
           "refId": "A",
-          "target": "aliasByMetric(stats.gauges.blocks.tip.NumTransactions)"
+          "target": "aliasByMetric(stats.message.sent.reject*)"
         },
         {
           "refCount": 0,
-          "refId": "B",
-          "target": "aliasByMetric(stats.gauges.blocks.tip.SigOps)"
-        },
-        {
-          "refCount": 0,
-          "refId": "C",
-          "target": "aliasByMetric(stats.gauges.blocks.tip.SizeBytes)"
+          "refId": "E",
+          "target": "aliasByMetric(stats.misbehavior.banned)"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Block Usage",
+      "timezone": "browser",
+      "title": "Peer Misbehavior",
       "tooltip": {
+        "query_as_alias": true,
         "shared": true,
         "sort": 0,
-        "value_type": "cumulative"
+        "value_type": "individual"
       },
       "type": "graph",
       "xaxis": {
@@ -121,129 +414,7 @@
       "yaxes": [
         {
           "format": "none",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "decbytes",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "cmpctblock": "#BF1B00",
-        "currentHeight": "#508642"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 7
-      },
-      "hiddenSeries": false,
-      "id": 1,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": false,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Height",
-          "lines": true,
-          "yaxis": 2
-        },
-        {
-          "alias": "block",
-          "bars": true
-        },
-        {
-          "alias": "cmpctblock",
-          "bars": true
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "refCount": 0,
-          "refId": "A",
-          "target": "aliasByMetric(stats.gauges.blocks.tip.Height)"
-        },
-        {
-          "refCount": 0,
-          "refId": "B",
-          "target": "aliasByMetric(stats.message.received.block)"
-        },
-        {
-          "refCount": 0,
-          "refId": "C",
-          "target": "aliasByMetric(stats.message.received.cmpctblock)"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Blocks Received vs Block Height",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "none",
+          "label": "Rejected Messages per sec",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -251,6 +422,7 @@
         },
         {
           "format": "none",
+          "label": "Peer Misbehavior per sec",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -260,230 +432,11 @@
       "yaxis": {
         "align": false,
         "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "blockInvReceived": "#3F6833",
-        "blockReceived": "#58140C"
       },
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 14
-      },
-      "hiddenSeries": false,
-      "id": 3,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": false,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "blockInvReceived",
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "refId": "A",
-          "target": "alias(stats.message.received.block, 'blockReceived')"
-        },
-        {
-          "refId": "B",
-          "target": "alias(stats.message.received.cmpctblock, 'compactBlockReceived')"
-        },
-        {
-          "refId": "C",
-          "target": "alias(stats.message.received.inv_block, 'blockInvReceived')"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Blocks Received vs Block INVs Received",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "blockSent": "#890F02"
-      },
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 21
-      },
-      "hiddenSeries": false,
-      "id": 2,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": false,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 1,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "refId": "A",
-          "target": "alias(stats.message.received.block, 'blockReceived')"
-        },
-        {
-          "refId": "B",
-          "target": "alias(stats.message.received.cmpctblock, 'compactBlockReceived')"
-        },
-        {
-          "refId": "C",
-          "target": "alias(stats.message.sent.block, 'blockSent')"
-        },
-        {
-          "refId": "D",
-          "target": "alias(stats.message.received.getblocks, 'blocksRequested')"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Blocks Received vs Blocks Sent",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "zerofill": true
     }
   ],
-  "refresh": false,
+  "refresh": "10m",
   "schemaVersion": 26,
   "style": "dark",
   "tags": [],
@@ -526,7 +479,7 @@
     "type": "timepicker"
   },
   "timezone": "browser",
-  "title": "Blocks",
-  "uid": "8MW2c0-Gk",
+  "title": "Peers",
+  "uid": "sui150-Gk",
   "version": 2
 }

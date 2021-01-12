@@ -1,6 +1,5 @@
 {
   "annotations": {
-    "enable": false,
     "list": [
       {
         "builtIn": 1,
@@ -21,10 +20,243 @@
   "panels": [
     {
       "aliasColors": {
-        "bytesReceived": "#508642",
-        "bytesSent": "#BF1B00",
-        "stats.bandwidth.bytesReceived": "#508642",
-        "stats.bandwidth.bytesSent": "#BF1B00"
+        "lower": "#0A437C",
+        "mean": "#3F6833",
+        "removeAbovePercentile(mean, 95)": "red",
+        "upper": "#E0F9D7"
+      },
+      "annotate": {
+        "enable": false
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 3,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 1,
+      "legend": {
+        "avg": true,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 0,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "resolution": 100,
+      "scale": 1,
+      "seriesOverrides": [
+        {
+          "alias": "removeAbovePercentile(mean, 95)",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "refCount": -1,
+          "refId": "A",
+          "target": "aliasByMetric(stats.timers.AcceptBlock_us.mean)"
+        },
+        {
+          "refCount": 0,
+          "refId": "B",
+          "target": "removeAbovePercentile(#A, 95)",
+          "targetFull": "removeAbovePercentile(aliasByMetric(stats.timers.AcceptBlock_us.mean), 95)"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "AcceptBlock",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "µs",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "µs",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "lower": "#0A437C",
+        "mean": "#EAB839",
+        "removeAbovePercentile(mean, 95)": "red",
+        "removeAbovePercentile(mean, 99)": "red",
+        "upper": "#E0F9D7"
+      },
+      "annotate": {
+        "enable": false
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 3,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "avg": true,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 0,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "resolution": 100,
+      "scale": 1,
+      "seriesOverrides": [
+        {
+          "alias": "removeAbovePercentile(mean, 95)",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "refCount": -1,
+          "refId": "A",
+          "target": "aliasByMetric(stats.timers.CheckBlock_us.mean)"
+        },
+        {
+          "refCount": 0,
+          "refId": "B",
+          "target": "removeAbovePercentile(#A, 95)",
+          "targetFull": "removeAbovePercentile(aliasByMetric(stats.timers.CheckBlock_us.mean), 95)"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CheckBlock",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "µs",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "µs",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "lower": "#0A437C",
+        "mean": "#F9E2D2",
+        "removeAbovePercentile(mean, 95)": "red",
+        "upper": "#E0F9D7"
       },
       "annotate": {
         "enable": false
@@ -48,59 +280,61 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 14
       },
       "hiddenSeries": false,
-      "id": 3,
+      "id": 7,
       "legend": {
         "avg": true,
         "current": false,
-        "max": true,
+        "max": false,
         "min": false,
         "show": true,
         "total": false,
         "values": true
       },
-      "lines": true,
-      "linewidth": 0,
+      "lines": false,
+      "linewidth": 4,
       "links": [],
-      "nullPointMode": "null as zero",
+      "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
       "pluginVersion": "7.3.6",
-      "pointradius": 5,
-      "points": false,
+      "pointradius": 2,
+      "points": true,
       "renderer": "flot",
       "resolution": 100,
       "scale": 1,
       "seriesOverrides": [
         {
-          "alias": "bytesReceived",
-          "fill": 10
+          "alias": "removeAbovePercentile(mean, 95)",
+          "yaxis": 2
         }
       ],
       "spaceLength": 10,
       "stack": false,
-      "steppedLine": true,
+      "steppedLine": false,
       "targets": [
         {
+          "refCount": -1,
           "refId": "A",
-          "target": "aliasByMetric(stats.bandwidth.bytesReceived)"
+          "target": "aliasByMetric(stats.timers.ConnectBlock_ms.mean)"
         },
         {
+          "refCount": 0,
           "refId": "B",
-          "target": "aliasByMetric(stats.bandwidth.bytesSent)"
+          "target": "removeAbovePercentile(#A, 95)",
+          "targetFull": "removeAbovePercentile(aliasByMetric(stats.timers.ConnectBlock_ms.mean), 95)"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Incoming & Outgoing Bandwidth Usage per second",
+      "title": "ConnectBlock",
       "tooltip": {
-        "query_as_alias": true,
         "shared": true,
         "sort": 0,
         "value_type": "individual"
@@ -115,16 +349,15 @@
       },
       "yaxes": [
         {
-          "format": "Bps",
-          "label": "",
-          "logBase": 10,
+          "format": "ms",
+          "logBase": 1,
           "max": null,
-          "min": 1000,
+          "min": null,
           "show": true
         },
         {
-          "format": "Bps",
-          "logBase": 10,
+          "format": "µs",
+          "logBase": 1,
           "max": null,
           "min": null,
           "show": true
@@ -133,16 +366,241 @@
       "yaxis": {
         "align": false,
         "alignLevel": null
-      },
-      "zerofill": true
+      }
     },
     {
       "aliasColors": {
-        "TotalBandwidth": "#6ED0E0",
-        "stats.gauges.bandwidth.totalBytesSent": "#BF1B00",
-        "sumSeries(stats.gauges.bandwidth.*)": "#65C5DB",
-        "totalBytesReceived": "#508642",
-        "totalBytesSent": "#BF1B00"
+        "lower": "#0A437C",
+        "mean": "#82B5D8",
+        "removeAbovePercentile(mean, 95)": "red",
+        "upper": "#E0F9D7"
+      },
+      "annotate": {
+        "enable": false
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 3,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "legend": {
+        "avg": true,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 0,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "resolution": 100,
+      "scale": 1,
+      "seriesOverrides": [
+        {
+          "alias": "removeAbovePercentile(mean, 95)",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "refCount": -1,
+          "refId": "A",
+          "target": "aliasByMetric(stats.timers.ConnectTip_ms.mean)"
+        },
+        {
+          "refCount": 0,
+          "refId": "B",
+          "target": "removeAbovePercentile(#A, 95)",
+          "targetFull": "removeAbovePercentile(aliasByMetric(stats.timers.ConnectTip_ms.mean), 95)"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "ConnectTip",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ms",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "µs",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "stats.timers.AcceptToMemoryPool_ms.upper": "#BF1B00",
+        "upper": "#890F02"
+      },
+      "annotate": {
+        "enable": false
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 28
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "avg": true,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.6",
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "resolution": 100,
+      "scale": 1,
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": true,
+      "targets": [
+        {
+          "refId": "A",
+          "target": "aliasByMetric(stats.timers.AcceptToMemoryPool_ms.lower)"
+        },
+        {
+          "refId": "B",
+          "target": "aliasByMetric(stats.timers.AcceptToMemoryPool_ms.median)"
+        },
+        {
+          "hide": false,
+          "refId": "C",
+          "target": "aliasByMetric(stats.timers.AcceptToMemoryPool_ms.upper)"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "AcceptToMemoryPool",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:210",
+          "format": "ms",
+          "logBase": 10,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:211",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "upper": "#890F02"
       },
       "annotate": {
         "enable": false
@@ -166,576 +624,18 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 35
       },
       "hiddenSeries": false,
-      "id": 2,
+      "id": 5,
       "legend": {
-        "avg": false,
-        "current": true,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "connected",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "resolution": 100,
-      "scale": 1,
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "hide": false,
-          "queryType": "randomWalk",
-          "refId": "A",
-          "target": "aliasByMetric(stats.gauges.bandwidth.totalBytesReceived)"
-        },
-        {
-          "hide": false,
-          "queryType": "randomWalk",
-          "refId": "B",
-          "target": "aliasByMetric(stats.gauges.bandwidth.totalBytesSent)"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Total Bandwidth Used Since Last Restart",
-      "tooltip": {
-        "query_as_alias": true,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      },
-      "zerofill": true
-    },
-    {
-      "aliasColors": {
-        "bytesReceived": "#508642",
-        "bytesSent": "#BF1B00",
-        "stats.bandwidth.bytesReceived": "#508642",
-        "stats.bandwidth.bytesSent": "#BF1B00"
-      },
-      "annotate": {
-        "enable": false
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 12,
-        "w": 12,
-        "x": 0,
-        "y": 14
-      },
-      "hiddenSeries": false,
-      "id": 4,
-      "legend": {
-        "alignAsTable": true,
         "avg": true,
         "current": false,
-        "hideEmpty": false,
-        "max": true,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "resolution": 100,
-      "scale": 1,
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "refId": "A",
-          "target": "aliasByNode(stats.bandwidth.message.*.bytesReceived, 3)"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Incoming Bandwidth Usage by Message",
-      "tooltip": {
-        "query_as_alias": true,
-        "shared": false,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "Bps",
-          "label": "",
-          "logBase": 10,
-          "max": null,
-          "min": 1000,
-          "show": true
-        },
-        {
-          "format": "Bps",
-          "logBase": 10,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      },
-      "zerofill": true
-    },
-    {
-      "aliasColors": {
-        "bytesReceived": "#508642",
-        "bytesSent": "#BF1B00",
-        "stats.bandwidth.bytesReceived": "#508642",
-        "stats.bandwidth.bytesSent": "#BF1B00"
-      },
-      "annotate": {
-        "enable": false
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 12,
-        "w": 12,
-        "x": 12,
-        "y": 14
-      },
-      "hiddenSeries": false,
-      "id": 6,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "max": true,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "resolution": 100,
-      "scale": 1,
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "refId": "A",
-          "target": "aliasByNode(stats.bandwidth.message.*.bytesSent, 3)"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Outgoing Bandwidth Usage by Message",
-      "tooltip": {
-        "query_as_alias": true,
-        "shared": false,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "Bps",
-          "label": "",
-          "logBase": 10,
-          "max": null,
-          "min": 1000,
-          "show": true
-        },
-        {
-          "format": "Bps",
-          "logBase": 10,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      },
-      "zerofill": true
-    },
-    {
-      "aliasColors": {
-        "bytesReceived": "#508642",
-        "bytesSent": "#BF1B00",
-        "stats.bandwidth.bytesReceived": "#508642",
-        "stats.bandwidth.bytesSent": "#BF1B00"
-      },
-      "annotate": {
-        "enable": false
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 16,
-        "w": 12,
-        "x": 0,
-        "y": 26
-      },
-      "hiddenSeries": false,
-      "id": 7,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "hideEmpty": true,
-        "max": false,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "resolution": 100,
-      "scale": 1,
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "refId": "A",
-          "target": "aliasByNode(stats.gauges.bandwidth.message.*.totalBytesReceived, 4)"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Total Incoming Bandwidth Usage by Message (currently connected peers)",
-      "tooltip": {
-        "query_as_alias": true,
-        "shared": false,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "bytes",
-          "label": "",
-          "logBase": 10,
-          "max": null,
-          "min": 1000,
-          "show": true
-        },
-        {
-          "format": "Bps",
-          "logBase": 10,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      },
-      "zerofill": true
-    },
-    {
-      "aliasColors": {
-        "bytesReceived": "#508642",
-        "bytesSent": "#BF1B00",
-        "stats.bandwidth.bytesReceived": "#508642",
-        "stats.bandwidth.bytesSent": "#BF1B00"
-      },
-      "annotate": {
-        "enable": false
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 16,
-        "w": 12,
-        "x": 12,
-        "y": 26
-      },
-      "hiddenSeries": false,
-      "id": 8,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "hideEmpty": true,
-        "max": false,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "resolution": 100,
-      "scale": 1,
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "refId": "A",
-          "target": "aliasByNode(stats.gauges.bandwidth.message.*.totalBytesSent, 4)"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Total Outgoing Bandwidth Usage by Message (currently connected peers)",
-      "tooltip": {
-        "query_as_alias": true,
-        "shared": false,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "bytes",
-          "label": "",
-          "logBase": 10,
-          "max": null,
-          "min": 1000,
-          "show": true
-        },
-        {
-          "format": "Bps",
-          "logBase": 10,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      },
-      "zerofill": true
-    },
-    {
-      "aliasColors": {
-        "Top 5% Bandwidth Spikes": "#BF1B00",
-        "removeBelowPercentile(sumSeries(stats.bandwidth.*), 90)": "#447EBC",
-        "removeBelowPercentile(sumSeries(stats.bandwidth.*), 95)": "#1F78C1"
-      },
-      "annotate": {
-        "enable": false
-      },
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 42
-      },
-      "height": "300",
-      "hiddenSeries": false,
-      "id": 1,
-      "legend": {
-        "avg": false,
-        "current": false,
         "max": false,
         "min": false,
         "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": false,
       "linewidth": 1,
@@ -756,18 +656,24 @@
       "steppedLine": false,
       "targets": [
         {
-          "hide": false,
           "refId": "A",
-          "target": "alias(removeBelowPercentile(sumSeries(stats.bandwidth.*), 95), 'Top 5% Bandwidth Spikes')"
+          "target": "aliasByMetric(stats.timers.CheckInputs_ms.lower)"
+        },
+        {
+          "refId": "B",
+          "target": "aliasByMetric(stats.timers.CheckInputs_ms.median)"
+        },
+        {
+          "refId": "C",
+          "target": "aliasByMetric(stats.timers.CheckInputs_ms.upper)"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "95th Percentile Bandwidth Usage",
+      "title": "CheckInputs",
       "tooltip": {
-        "query_as_alias": true,
         "shared": true,
         "sort": 0,
         "value_type": "cumulative"
@@ -782,13 +688,15 @@
       },
       "yaxes": [
         {
-          "format": "bytes",
-          "logBase": 1,
+          "$$hashKey": "object:359",
+          "format": "ms",
+          "logBase": 10,
           "max": null,
           "min": null,
           "show": true
         },
         {
+          "$$hashKey": "object:360",
           "format": "short",
           "logBase": 1,
           "max": null,
@@ -799,8 +707,7 @@
       "yaxis": {
         "align": false,
         "alignLevel": null
-      },
-      "zerofill": true
+      }
     }
   ],
   "refresh": false,
@@ -846,7 +753,7 @@
     "type": "timepicker"
   },
   "timezone": "browser",
-  "title": "Bandwidth Usage",
-  "uid": "EMDR5AaMz",
-  "version": 2
+  "title": "Function Timings",
+  "uid": "7FMocA-Gz",
+  "version": 3
 }
