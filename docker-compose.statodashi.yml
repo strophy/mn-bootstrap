@@ -20,6 +20,7 @@ services:
       - "./templates/statodashi/grafana/blue-d.svg:/usr/share/grafana/public/img/grafana_icon.svg"
       - "./templates/statodashi/grafana/dashboards:/var/lib/grafana/dashboards"
       - "./templates/statodashi/grafana/provisioning/:/etc/grafana/provisioning"
+      - "grafana_data:/var/lib/grafana"
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/var/lib/grafana/dashboards/home.json
@@ -36,5 +37,6 @@ services:
 
 volumes:
   graphite_data:
+  grafana_data:
   prometheus_data:
   statsd_config:
