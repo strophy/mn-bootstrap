@@ -412,7 +412,8 @@
       "scale": 1,
       "seriesOverrides": [
         {
-          "alias": "stats.gauges.system.disk.size.used",
+          "$$hashKey": "object:159",
+          "alias": "used",
           "yaxis": 2
         }
       ],
@@ -421,16 +422,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "refCount": 0,
           "refId": "A",
-          "target": "stats.gauges.system.disk.size.used"
+          "target": "aliasByMetric(stats.gauges.system.disk.size.used)"
         },
         {
+          "refCount": 0,
           "refId": "B",
-          "target": "stats.gauges.system.disk.read.bytes"
+          "target": "alias(stats.gauges.system.disk.read.bytes, 'read')"
         },
         {
+          "refCount": 0,
           "refId": "C",
-          "target": "stats.gauges.system.disk.write.bytes"
+          "target": "alias(stats.gauges.system.disk.write.bytes, 'write')"
         }
       ],
       "thresholds": [],
@@ -454,6 +458,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:166",
           "format": "bps",
           "logBase": 1,
           "max": null,
@@ -461,6 +466,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:167",
           "format": "bytes",
           "logBase": 1,
           "max": null,
@@ -547,7 +553,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:1237",
-          "format": "short",
+          "format": "Bps",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -615,5 +621,5 @@
   "timezone": "browser",
   "title": "System Metrics",
   "uid": "JB9150-Mz",
-  "version": 6
+  "version": 8
 }
