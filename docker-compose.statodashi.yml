@@ -22,7 +22,7 @@ services:
       - "./templates/statodashi/grafana/provisioning/:/etc/grafana/provisioning"
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_DEFAULT_HOME_DASHBOARD_PATH = /var/lib/grafana/dashboards/home.json
+      - GF_DEFAULT_HOME_DASHBOARD_PATH=/var/lib/grafana/dashboards/home.json
 
   prometheus:
     image: prom/prometheus
