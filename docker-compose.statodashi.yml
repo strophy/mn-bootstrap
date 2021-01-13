@@ -5,7 +5,7 @@ services:
     image: graphiteapp/graphite-statsd
     restart: always
     ports:
-      - 127.0.0.1:8125:8125
+      - 127.0.0.1:8125:8125/udp
     volumes:
       - "./templates/statodashi/graphite/storage-schemas.conf:/opt/graphite/conf/storage-schemas.conf"
       - "./templates/statodashi/graphite/storage-aggregation.conf:/opt/graphite/conf/storage-aggregation.conf"
