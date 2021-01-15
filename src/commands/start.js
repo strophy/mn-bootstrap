@@ -19,6 +19,7 @@ class StartCommand extends BaseCommand {
     args,
     {
       update: isUpdate,
+      bootstrap: isBootstrap,
       'drive-image-build-path': driveImageBuildPath,
       'dapi-image-build-path': dapiImageBuildPath,
       verbose: isVerbose,
@@ -40,6 +41,7 @@ class StartCommand extends BaseCommand {
               driveImageBuildPath,
               dapiImageBuildPath,
               isUpdate,
+              isBootstrap,
             },
           ),
         },
@@ -70,6 +72,7 @@ Start node
 StartCommand.flags = {
   ...BaseCommand.flags,
   update: flagTypes.boolean({ char: 'u', description: 'download updated services before start', default: false }),
+  bootstrap: flagTypes.boolean({ char: 'b', description: 'download network bootstrap before start', default: false }),
   'drive-image-build-path': flagTypes.string({ description: 'drive\'s docker image build path', default: null }),
   'dapi-image-build-path': flagTypes.string({ description: 'dapi\'s docker image build path', default: null }),
 };

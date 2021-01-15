@@ -7,9 +7,13 @@ const NETWORKS = require('../../networks');
 /**
  *
  * @param {DockerCompose} dockerCompose
+ * @param {downloadBootstrapTask} downloadBootstrapTask
  * @return {startNodeTask}
  */
-function startNodeTaskFactory(dockerCompose) {
+function startNodeTaskFactory(
+  dockerCompose,
+  downloadBootstrapTask,
+) {
   /**
    * @typedef {startNodeTask}
    * @param {Config} config
@@ -17,6 +21,7 @@ function startNodeTaskFactory(dockerCompose) {
    * @param {string} [options.driveImageBuildPath]
    * @param {string} [options.dapiImageBuildPath]
    * @param {boolean} [options.isUpdate]
+   * @param {boolean} [options.isBootstrap]
    * @param {boolean} [options.isMinerEnabled]
    * @return {Object}
    */
@@ -26,6 +31,7 @@ function startNodeTaskFactory(dockerCompose) {
       driveImageBuildPath = undefined,
       dapiImageBuildPath = undefined,
       isUpdate = undefined,
+      isBootstrap = undefined,
       isMinerEnabled = undefined,
     },
   ) {
@@ -46,6 +52,11 @@ function startNodeTaskFactory(dockerCompose) {
         title: 'Download updated services',
         enabled: () => isUpdate === true,
         task: async () => dockerCompose.pull(config.toEnvs()),
+      },
+      {
+        title: 'Download bootstrap',
+        enabled: () => isBootstrap === true,
+        task: async () => downloadBootstrapTask(config),
       },
       {
         title: 'Check node is not started',
